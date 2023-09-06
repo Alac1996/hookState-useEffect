@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// step-1 รู้ว่า user กดปุ่มไหน ?
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function App() {
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    console.log("Effect Hook");
+  });
+
+  return (
+    <div>
+      <h1>useEffect</h1>
+      <div className="button_group">
+        <button onClick={() => setCategory("posts")}>posts</button>
+        <button onClick={() => setCategory("photos")}>photos</button>
+        <button onClick={() => setCategory("todo")}>todo</button>
+        <button onClick={() => setCategory("users")}>users</button>
+      </div>
+
+      <ul className="lists">
+        <li className="list_item">item-1</li>
+      </ul>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
